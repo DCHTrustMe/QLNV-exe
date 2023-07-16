@@ -179,7 +179,7 @@ function isID(value) {
 
 // Hàm check Name
 function isName(value) {
-  let regex = /^[A-Z][a-zA-Z '.-]*[A-Za-z][^-]$/;
+  let regex = /^[A-Za-z][a-zA-Z '.-]*[A-Za-z][^-]$/;
   return regex.test(value);
 }
 
