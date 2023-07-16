@@ -173,7 +173,7 @@ function isRequired(value) {
 
 // Hàm check ID
 function isID(value) {
-  let regex = /^[0-9]{4,6}$/;
+  let regex = /^[0-9]{0,6}$/;
   return regex.test(value);
 }
 
@@ -252,44 +252,45 @@ function validate() {
   let spanId = document.getElementById("tbTKNV");
   if (!isRequired(id)) {
     isValid = false;
-    spanId.innerHTML = "Mã Nhân Viên không để trống";
+    spanId.innerHTML = "Tài khoản không để trống";
     spanId.style.display = "block";
   } else if (!isID(id)) {
     isValid = false;
-    spanId.innerHTML = "Mã Nhân Viên không hợp lệ";
+    spanId.innerHTML = "Tài khoản tối đa 6 ký số";
     spanId.style.display = "block";
   }
 
   let spanName = document.getElementById("tbTen");
   if (!isRequired(name)) {
     isValid = false;
-    spanName.innerHTML = "Tên Nhân Viên không để trống";
+    spanName.innerHTML = "Tên nhân viên không để trống";
     spanName.style.display = "block";
   } else if (!isName(name)) {
     isValid = false;
-    spanName.innerHTML = "Tên Nhân Viên không hợp lệ";
+    spanName.innerHTML = "Tên nhân viên phải là chữ và không có dấu";
     spanName.style.display = "block";
   }
 
   let spanEmail = document.getElementById("tbEmail");
   if (!isRequired(email)) {
     isValid = false;
-    spanEmail.innerHTML = "Email Nhân Viên không để trống";
+    spanEmail.innerHTML = "Email nhân viên không để trống";
     spanEmail.style.display = "block";
   } else if (!isEmail(email)) {
     isValid = false;
-    spanEmail.innerHTML = "Email Nhân Viên không hợp lệ";
+    spanEmail.innerHTML = "Email nhân viên không hợp lệ";
     spanEmail.style.display = "block";
   }
 
   let spanPass = document.getElementById("tbMatKhau");
   if (!isRequired(pass)) {
     isValid = false;
-    spanPass.innerHTML = "Mật Khẩu không để trống";
+    spanPass.innerHTML = "Mật khẩu không để trống";
     spanPass.style.display = "block";
   } else if (!isPass(pass)) {
     isValid = false;
-    spanPass.innerHTML = "Mật Khẩu không hợp lệ";
+    spanPass.innerHTML =
+      "Mật khẩu phải từ 6 đến 10 ký tự trong đó phải có ký tự in hoa, ký tự đặc biệt và số";
     spanPass.style.display = "block";
   }
 
@@ -300,7 +301,7 @@ function validate() {
     spanWorkDay.style.display = "block";
   } else if (!isworkDay(workDay)) {
     isValid = false;
-    spanWorkDay.innerHTML = "Ngày làm không hợp lệ ";
+    spanWorkDay.innerHTML = "Ngày làm phải đúng định dạng mm/dd/yyyy ";
     spanWorkDay.style.display = "block";
   }
 
@@ -311,7 +312,8 @@ function validate() {
     spanSalary.style.display = "block";
   } else if (!isSalary(salary)) {
     isValid = false;
-    spanSalary.innerHTML = "Lương cơ bản không hợp lệ";
+    spanSalary.innerHTML =
+      "Lương cơ bản phải là số trong khoảng 1 triệu đến 20 triệu";
     spanSalary.style.display = "block";
   }
 
@@ -329,7 +331,7 @@ function validate() {
     spanWorkTimes.style.display = "block";
   } else if (!isWorkTimes(workTimes)) {
     isValid = false;
-    spanWorkTimes.innerHTML = "Giờ làm không hợp lệ ";
+    spanWorkTimes.innerHTML = "Giờ làm phải là số trong khoảng 80 đến 200 ";
     spanWorkTimes.style.display = "block";
   }
 
@@ -357,7 +359,7 @@ document.getElementById("tknv").oninput = (event) => {
   if (isRequired(event.target.value)) {
     idSpan.innerHTML = "";
   } else {
-    idSpan.innerHTML = "Mã không để trống";
+    idSpan.innerHTML = "Tài khoản không để trống";
   }
 };
 
